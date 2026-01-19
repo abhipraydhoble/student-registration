@@ -34,6 +34,11 @@ provider "aws {
  profile = "tf-user"
 }
 ```
+
+#### Changes:
+- **main.tf** instance-type
+- **main.tf** bucket-name
+
 **Initialize terraform**
 ````
 terraform init
