@@ -1,4 +1,4 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
@@ -6,15 +6,30 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       app: backend
+      app: backend
   template:
     metadata:
-      name: tmp-1
-      labels: 
+      labels:
         app: backend
     spec:
-        containers:
-         - name: cont1
-           image: abhipraydh96/b31-backend
-           ports:
-            - containerPort: 80
+      containers:
+        - name: backend
+          image: abhipraydh96/b31-backend:latest
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: spring.datasource.password
+
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+
+      volumes:
+        - name: config-volume
+          configMap:
+            name: backend-config
