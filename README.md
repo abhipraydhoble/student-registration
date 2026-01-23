@@ -70,6 +70,16 @@ aws configure
 ````
 aws eks update-kubeconfig --name cbz-cluster
 ````
+````
+kubectl get nodes
+````
+````
+sudo cp -r ~/.kube /var/lib/jenkins/
+````
+````
+sudo chown -R jenkins:jenkins /var/lib/jenkins/.kube
+````
+
 ---
 **:Install kubectl**
 
