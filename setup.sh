@@ -64,10 +64,7 @@ curl -LO https://dl.k8s.io/release/$(curl -L -s \
 https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-# ===============================
-# Helm
-# ===============================
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
 
 # ===============================
 # eksctl
@@ -89,7 +86,5 @@ docker --version
 terraform -version
 aws --version
 kubectl version --client
-helm version
-eksctl version
 java -version
-git --version
+
